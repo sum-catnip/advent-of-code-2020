@@ -34,9 +34,13 @@ mod tests {
 
 pub fn count_trees(map: impl Iterator<Item = String>, slope: (usize, usize)) -> usize {
     let (stepx, stepy) = slope;
-    let mut xpos = 0;
-    map.skip(stepy).step_by(stepy).filter(|col| {
-        xpos += stepx;
-        col.chars().nth(xpos % col.chars().count()).unwrap() == '#'
-    }).count()
+    map
+        .skip(stepy)
+        .step_by(stepy)
+        .enumerate()
+        .filter(|(i, col)| col
+            .chars()
+            .nth(((i +1) * stepx) % col.chars().count())
+            .unwrap() == '#')
+        .count()
 }
