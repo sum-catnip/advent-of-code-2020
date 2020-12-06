@@ -13,7 +13,7 @@ mod tests {
 
     #[test]
     fn test_day5_p1() {
-        assert_eq!(0, input::file_lines("../data/day5-1.txt")
+        assert_eq!(822, input::file_lines("../data/day5-1.txt")
             .map(|l| find_seat(&l)).max().unwrap())
     }
 
