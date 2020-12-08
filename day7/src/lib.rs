@@ -1,4 +1,3 @@
-use std::convert::AsRef;
 use std::collections::{ HashMap, HashSet };
 use lazy_static::lazy_static;
 use regex::Regex;
