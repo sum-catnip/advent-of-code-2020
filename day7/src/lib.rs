@@ -82,7 +82,6 @@ fn find_recurse_out<'a>(rules: &Rules<'a>, target: &str, out: &mut Out<'a>) {
 fn count_recurse_in<'a>(rules: &Rules<'a>, target: &str) -> usize {
     rules
         .get(target)
-        .map(|t| { println!("{:?}{:?}", t, target); t})
         .map(|b| b.iter()
              .fold(1, |a, e| (e.0 * count_recurse_in(rules, e.1)) + a))
         .unwrap_or(0)
